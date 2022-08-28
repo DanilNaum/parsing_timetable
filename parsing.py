@@ -2,11 +2,12 @@ from bs4 import BeautifulSoup
 import requests as req
 import datetime as dt
 
-ruMonths = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября',
+ruMonths = ['','января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября',
           'октября', 'ноября', 'декабря']
 
 date = dt.datetime.now()
-current_day = str(date.year)+'-'+'{:02d}'.format(date.month)+'-'+'{:02d}'.format(date.day)
+findingYear, findingMonth,findingDay = date.year,date.month,date.day
+current_day = str(findingYear)+'-'+'{:02d}'.format(findingMonth)+'-'+'{:02d}'.format(findingDay)
 url = "https://timetable.spbu.ru/AMCP/StudentGroupEvents/Primary/334302/"+current_day
 headers = {
     "Accept": "*/*",
@@ -27,10 +28,19 @@ days = soup.findAll(class_="panel-collapse nopadding nomargin")
 for day in days:
     s = (' '.join(day.parent.find(class_="panel-heading").text.split()))
     s = s[s.find(",") + 2:]
-    day_pars,month_pars = s.split()[0],ruMonths.index(s.split()[1])
-    print(day_pars,month_pars)
+    dayPars, monthPars = int(s.split()[0]), ruMonths.index(s.split()[1])
+    print(str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars))
     lessons = []
     lessons = day.findAll(class_="common-list-item row")
     for lesson in lessons:
-        print('\t'+ ' '.join(lesson.text.split()))
+        timeOfLesson = ' '.join(lesson.find(class_="col-sm-2 studyevent-datetime").text.split())
+        nameOfLesson = ' '.join(lesson.find(class_="col-sm-4 studyevent-subject").text.split())
+        try:
+            addresOfLesson = ' '.join(lesson.find(class_="col-sm-3 studyevent-locations").text.split())
+            teacherNameOfLesson = ' '.join(lesson.find(class_="col-sm-3 studyevent-educators").text.split())
+        except AttributeError:
+            addresOfLesson = ''
+            teacherNameOfLesson = ''
+        # print('\t'+ ' '.join(lesson.text.split()))
+        print('\t' + timeOfLesson + nameOfLesson + addresOfLesson + teacherNameOfLesson)
     print('\n')
