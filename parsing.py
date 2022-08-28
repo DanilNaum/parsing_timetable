@@ -14,7 +14,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.167 YaBrowser/22.7.3.822 Yowser/2.5 Safari/537.36",
     "Accept-Language": "ru"
 }
-days=[]
+
 resp = req.get(url, headers=headers)
 src = resp.text
 with open("index2.html", "w", encoding="utf-8")as file:
@@ -22,7 +22,8 @@ with open("index2.html", "w", encoding="utf-8")as file:
 
 with open("index2.html", encoding="utf-8") as file:
     src = file.read()
-soup = BeautifulSoup(src, 'lxml')
+soup = BeautifulSoup(src, 'html.parser')
+# soup = BeautifulSoup(src, 'lxml')
 days = soup.findAll(class_="panel-collapse nopadding nomargin")
 
 for day in days:
@@ -30,7 +31,7 @@ for day in days:
     s = s[s.find(",") + 2:]
     dayPars, monthPars = int(s.split()[0]), ruMonths.index(s.split()[1])
     print(str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars))
-    lessons = []
+
     lessons = day.findAll(class_="common-list-item row")
     for lesson in lessons:
         timeOfLesson = ' '.join(lesson.find(class_="col-sm-2 studyevent-datetime").text.split())
