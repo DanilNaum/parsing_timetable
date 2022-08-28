@@ -1,0 +1,774 @@
+<!doctype html>
+<html>
+    <head>
+        
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Расписание СПбГУ</title>
+<link href="/static/media/favicon.ico?66353d5b" rel="icon">
+<link href="/static/css/main.1a750d00.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <a href="/" id="navbar-back-button" class="visible-xs-*">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </a>
+                <div class="locale-switcher">
+                    
+
+
+<form action="/Base/SetClientCultureCookie" method="post">    <fieldset>
+        <div class="control-group">
+            <div class="controls">
+                <label for="en-us" title="Switch to English">
+                    <input class="locale-option" name="clientCultureName" id="en-us" value="en-us" type="radio"  />
+                    En
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label for="ru" title="Переключить на Русский">
+                    <input class="locale-option" name="clientCultureName" id="ru" value="ru" type="radio"         checked="checked"
+ />
+                    Ру
+                </label>
+            </div>
+        </div>
+        <div class="control-group buttons">
+            <input id="locale-submit" type="submit" value="Submit" />
+        </div>
+    </fieldset>
+</form>
+                </div>
+                <div class="navbar-header" id="navbar-header">
+                    <a href="/" class="navbar-brand">Расписание СПбГУ</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            
+
+<ol class="breadcrumb">
+            <li>
+                <a href="/">Главная</a>
+            </li>
+            <li>
+                <a href="/AMCP">Процессы управления</a>
+            </li>
+            <li>
+                <a href="/AMCP/StudyProgram/11889">Программа &quot;Прикладная математика, фундаментальная информатика и программирование&quot;</a>
+            </li>
+            <li class="active">
+                Расписание
+            </li>
+</ol>
+
+
+
+<div class="row">
+    <div class="col-sm-12" style="padding-left: 0; padding-right:0;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Уважаемые обучающиеся и преподаватели! Согласно п.2.2.3 Правил обучения по основным образовательным программам бакалавриата, специалитета, магистратуры и среднего профессионального образования в Санкт-Петербургском государственном университете расписание учебных занятий будет опубликовано не позднее 31 августа.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12" style="padding-left: 0; padding-right:0;">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    Подробную информацию о способах прохождения дистанционного обучения можно получить в <a href="https://my.spbu.ru">ЛК "Обучающегося" </a>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <h2 style="display: inline;">Группа 20.Б07-пу</h2>
+        </div>
+        <div class="col-sm-3">
+                <a href="/Documents/%d0%a0%d0%b0%d1%81%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d0%ba%d0%b0_%d0%ba%d0%be%d0%bc%d0%b1_%d0%ba%d1%80%d0%b0%d1%82%d0%ba%d0%be.pdf" )" target="_blank" style="float: right; margin-top: 10px;">Формы проведения занятий</a>
+        </div>
+        <div class="col-sm-2">
+            <a href="/StudentGroupEvents/ExcelWeek?studentGroupId=334302&amp;weekMonday=2022-08-28" style="float: right; margin-top: 10px;">
+                <span style="font-size: large;">
+                    <i class="glyphicon glyphicon-cloud-download"></i> сохранить
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<h3>Все занятия</h3>
+
+<div id="timetable-week-navigator">
+<a class="prev-week" href="/AMCP/StudentGroupEvents/Primary/334302/2022-08-21">‹ предыдущая неделя</a>    <a class="next-week" href="/AMCP/StudentGroupEvents/Primary/334302/2022-09-04">следующая неделя ›</a>
+    <div id="timetable-week-navigator-chosen-week">
+        <div style="position: relative">
+            <a href="javascript:void(0)"
+               id="week"
+               data-url="/AMCP/StudentGroupEvents/Primary/334302/2022-08-28"
+               data-weekmonday="2022-08-28">
+                <i class="glyphicon glyphicon-calendar">
+                </i>
+                <span>28 августа – 3 сентября</span>
+            </a>
+            <input type="hidden" class="weektimepicker form-control" />
+                <span>|</span> <a href="/AMCP/StudentGroupEvents/Primary/334302">в начало</a>            <span>|</span> <a href="/AMCP/StudentGroupEvents/Semester/334302">на семестр</a>
+        </div>
+    </div>
+</div>
+
+<div id="view-mode-panel" class="text-right">
+    все занятия |
+    <a href="/AMCP/StudentGroupEvents/Online/334302">онлайн-курсы</a> |
+    <a href="/AMCP/StudentGroupEvents/Attestation/334302">пром. аттестация</a> |
+    <a href="/AMCP/StudentGroupEvents/Final/334302">итоговая аттестация</a>
+</div>
+
+<div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    четверг, 1 сентября
+                </h4>
+            </div>
+            <ul class="panel-collapse nopadding nomargin">
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                09:30–11:05
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Численные методы, лекция
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+    <div class="col-sm-3 studyevent-locations">
+        <div class="with-icon"
+             title="Места проведения занятия"
+             data-toggle="tooltip"
+             data-placement="top"
+             data-container="body">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <div class="address-modal-btn"
+                     data-lat="59,882168"
+                     data-lng="29,830498"
+                     data-address="Университетский проспект, д. 35, корп. Д, лит. Д,204Д"
+                     data-name="Численные методы, лекция">
+                    <span class="hoverable link">
+                        Университетский проспект, д. 35, корп. Д, лит. Д,204Д
+                    </span>
+                </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                <i class="glyphicon glyphicon-user"></i>
+                <div>
+                    <span class="hoverable"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                            <span class="link">
+                                <a href="/EducatorEvents/1352">Еремин А. С.</a>
+                            </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+                    </li>
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                11:15–12:50
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Теория игр и исследование операций, лекция
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+
+    <div class="col-sm-3 studyevent-multiple-locations">
+        <div class="with-icon">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+            <div class="locations-educators-modal-btn"
+                 data-name="Теория игр и исследование операций, лекция"
+                 data-time="11:15–12:50 – 1 сентября">
+                <span class="hoverable link"
+                      title="Места проведения занятия"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      data-container="body">
+                    Университетский проспект, д. 35, корп. Д, лит. Д,210Д
+                </span>
+                <text>►</text>
+            </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                    <i class="glyphicon glyphicon-user"></i>
+                <div class="locations-educators-modal-btn"
+                     data-name="Теория игр и исследование операций, лекция"
+                     data-time="11:15–12:50 – 1 сентября">
+                    <span class="hoverable link"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                        Петросян Л. А., профессор; Зенкевич Н. А., доцент
+                    </span>
+                </div>
+            </div>
+        </div>
+    <div class="studyevent-location-educator-modal hidden">
+        <div class="location-educator-table">
+                    <div class="common-list-item row highlight-row">
+                        <div class="col-sm-6">
+                            <div class="with-icon">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <div class="address-modal-btn"
+                                         data-lat="59,882168"
+                                         data-lng="29,830498"
+                                         data-address="Университетский проспект, д. 35, корп. Д, лит. Д,210Д"
+                                         data-name="Теория игр и исследование операций, лекция">
+                                        <span class="hoverable link"
+                                              title="Места проведения занятия"
+                                              data-toggle="tooltip"
+                                              data-container="body"
+                                              data-placement="top">
+                                            Университетский проспект, д. 35, корп. Д, лит. Д,210Д
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="with-icon">
+                                    <i class="glyphicon glyphicon-education"></i>
+                                </div>
+                                                            <div class="with-icon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <div>
+                                        <span class="hoverable"
+                                              title="Преподаватели"
+                                              data-toggle="tooltip"
+                                              data-container="body"
+                                              data-placement="top">
+                                                <span class="link">
+                                                    <a href="/EducatorEvents/1360">Зенкевич Н. А.</a>
+                                                </span>
+                                        </span>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="common-list-item row highlight-row">
+                        <div class="col-sm-6">
+                            <div class="with-icon">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <div class="address-modal-btn"
+                                         data-lat="59,882168"
+                                         data-lng="29,830498"
+                                         data-address="Университетский проспект, д. 35, корп. Д, лит. Д,210Д"
+                                         data-name="Теория игр и исследование операций, лекция">
+                                        <span class="hoverable link"
+                                              title="Места проведения занятия"
+                                              data-toggle="tooltip"
+                                              data-container="body"
+                                              data-placement="top">
+                                            Университетский проспект, д. 35, корп. Д, лит. Д,210Д
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="with-icon">
+                                    <i class="glyphicon glyphicon-education"></i>
+                                </div>
+                                                            <div class="with-icon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <div>
+                                        <span class="hoverable"
+                                              title="Преподаватели"
+                                              data-toggle="tooltip"
+                                              data-container="body"
+                                              data-placement="top">
+                                                <span class="link">
+                                                    <a href="/EducatorEvents/1422">Петросян Л. А.</a>
+                                                </span>
+                                        </span>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+                    </li>
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                13:40–15:15
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Теория игр и исследование операций, практическое занятие
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+
+    <div class="col-sm-3 studyevent-multiple-locations">
+        <div class="with-icon">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+            <div class="locations-educators-modal-btn"
+                 data-name="Теория игр и исследование операций, практическое занятие"
+                 data-time="13:40–15:15 – 1 сентября">
+                <span class="hoverable link"
+                      title="Места проведения занятия"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      data-container="body">
+                    Университетский проспект, д. 35, корп. Б, лит. Б,447
+                </span>
+                <text>►</text>
+            </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                <div class="locations-educators-modal-btn"
+                     data-name="Теория игр и исследование операций, практическое занятие"
+                     data-time="13:40–15:15 – 1 сентября">
+                    <span class="hoverable link"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    <div class="studyevent-location-educator-modal hidden">
+        <div class="location-educator-table">
+                    <div class="common-list-item row highlight-row">
+                        <div class="col-sm-6">
+                            <div class="with-icon">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    <div class="address-modal-btn"
+                                         data-lat="59,882241"
+                                         data-lng="29,830466"
+                                         data-address="Университетский проспект, д. 35, корп. Б, лит. Б,447"
+                                         data-name="Теория игр и исследование операций, практическое занятие">
+                                        <span class="hoverable link"
+                                              title="Места проведения занятия"
+                                              data-toggle="tooltip"
+                                              data-container="body"
+                                              data-placement="top">
+                                            Университетский проспект, д. 35, корп. Б, лит. Б,447
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="with-icon">
+                                    <i class="glyphicon glyphicon-education"></i>
+                                </div>
+                                                    </div>
+                    </div>
+        </div>
+    </div>
+
+                    </li>
+            </ul>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    суббота, 3 сентября
+                </h4>
+            </div>
+            <ul class="panel-collapse nopadding nomargin">
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                09:30–11:05
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Теория управления, практическое занятие
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+    <div class="col-sm-3 studyevent-locations">
+        <div class="with-icon"
+             title="Места проведения занятия"
+             data-toggle="tooltip"
+             data-placement="top"
+             data-container="body">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <div class="address-modal-btn"
+                     data-lat="59,882168"
+                     data-lng="29,830498"
+                     data-address="Университетский проспект, д. 35, корп. А, лит. А,4009"
+                     data-name="Теория управления, практическое занятие">
+                    <span class="hoverable link">
+                        Университетский проспект, д. 35, корп. А, лит. А,4009
+                    </span>
+                </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                <i class="glyphicon glyphicon-user"></i>
+                <div>
+                    <span class="hoverable"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                            <span class="link">
+                                <a href="/EducatorEvents/1454">Стрекопытов С. А.</a>
+                            </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+                    </li>
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                11:15–12:50
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Уравнения математической физики, практическое занятие
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+    <div class="col-sm-3 studyevent-locations">
+        <div class="with-icon"
+             title="Места проведения занятия"
+             data-toggle="tooltip"
+             data-placement="top"
+             data-container="body">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <div class="address-modal-btn"
+                     data-lat="59,882241"
+                     data-lng="29,830466"
+                     data-address="Университетский проспект, д. 35, корп. Б, лит. Б,219"
+                     data-name="Уравнения математической физики, практическое занятие">
+                    <span class="hoverable link">
+                        Университетский проспект, д. 35, корп. Б, лит. Б,219
+                    </span>
+                </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                <i class="glyphicon glyphicon-user"></i>
+                <div>
+                    <span class="hoverable"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                            <span class="link">
+                                <a href="/EducatorEvents/1333">Чиркова А. В.</a>
+                            </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+                    </li>
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                15:25–17:00
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Учебная практика (научно-исследовательская работа), сам. работа в присутствии преподавателя
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+    <div class="col-sm-3 studyevent-locations">
+        <div class="with-icon"
+             title="Места проведения занятия"
+             data-toggle="tooltip"
+             data-placement="top"
+             data-container="body">
+                    <i class="glyphicon glyphicon-facetime-video"></i>
+                <div>
+                    <span class="hoverable moreinfo">
+                        С использованием информационно-коммуникационных технологий
+                    </span>
+                </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                <i class="glyphicon glyphicon-user"></i>
+                <div>
+                    <span class="hoverable"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                            <span class="link">
+                                <a href="/EducatorEvents/1423">Печников А. А.</a>
+                            </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+                    </li>
+                    <li class="common-list-item row">
+                        <div class="col-sm-2 studyevent-datetime">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-time"></i>
+        <div>
+            <span class="moreinfo"
+                  title="Время"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  data-container="body">
+                17:10–18:45
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+                        <div class="col-sm-4 studyevent-subject">
+    <div class="with-icon">
+        <i class="glyphicon glyphicon-education"></i>
+        <div>
+            <span class="moreinfo"
+                    title="Предмет"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    data-container="body">
+                Учебная практика (научно-исследовательская работа), сам. работа в присутствии преподавателя
+            </span>
+        </div>
+    </div>
+</div>
+
+                        
+
+    <div class="col-sm-3 studyevent-locations">
+        <div class="with-icon"
+             title="Места проведения занятия"
+             data-toggle="tooltip"
+             data-placement="top"
+             data-container="body">
+                    <i class="glyphicon glyphicon-facetime-video"></i>
+                <div>
+                    <span class="hoverable moreinfo">
+                        С использованием информационно-коммуникационных технологий
+                    </span>
+                </div>
+        </div>
+    </div>
+        <div class="col-sm-3 studyevent-educators">
+            <div class="with-icon">
+                <i class="glyphicon glyphicon-user"></i>
+                <div>
+                    <span class="hoverable"
+                          title="Преподаватели"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-container="body">
+                            <span class="link">
+                                <a href="/EducatorEvents/1423">Печников А. А.</a>
+                            </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+                    </li>
+            </ul>
+        </div>
+</div>
+
+            <script async src="data:text/plain;base64,Zm9yKHZhciBhPWRvY3VtZW50LmdldEVsZW1lbnRzQnlDbGFzc05hbWUoImxvY2F0aW9ucy1lZHVjYXRvcnMtbW9kYWwtYnRuIiksYj0wO2I8YS5sZW5ndGg7YisrKXt2YXIgYz1hW2JdLnF1ZXJ5U2VsZWN0b3IoInNwYW4iKSxkPWMuaW5uZXJUZXh0LnRyaW0oKTs2MDxkLmxlbmd0aCYmKGMuaW5uZXJUZXh0PWQuc3Vic3RyKDAsNjApKyIgLi4uIil9Ow=="></script>
+        </div>
+        <script defer src="/static/js/main.3b73324d.js"></script>
+    </body>
+</html>
