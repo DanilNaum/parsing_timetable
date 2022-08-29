@@ -4,7 +4,7 @@ from privatInfo import token, vk_id
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
-listOfChatForMessageEveryDay=[]
+listOfChatForMessageEveryDay= []
 
 
 
@@ -16,9 +16,9 @@ def chat_sender(id,message, randomId= -1):
 def user_sender(id,message):
     vk.messages.send(user_id= id, message= message, random_id= random.randrange(1, 2147483645))
 
-def MessageEveryDay(chat_id,messText='что-то пошло не так',randIdForMessageEveryDay = 0, timeForMessHour = 9, timeForMessMin = 0):
+def MessageEveryDay(chat_id,messText='что-то пошло не так',randIdForMessageEveryDay = 0, timeForMessHour = 9, timeForMessMin = 0,test= False):
     date = parsing.dt.datetime.now()
-    if date.hour == timeForMessHour and int(date.minute) == int(timeForMessMin):
+    if test or (date.hour == timeForMessHour and int(date.minute) == int(timeForMessMin)):
         chat_sender(chat_id, messText, randIdForMessageEveryDay)
 
 vk_session = vk_api.VkApi(token=token)
@@ -29,8 +29,8 @@ longpoll = VkBotLongPoll(vk_session, vk_id)
 
 while True:
     randIdForMessageEveryDay = int(''.join([i for i in parsing.current_day if i.isdigit()]))
-    for chat_id in listOfChatForMessageEveryDay:
-        MessageEveryDay(chat_id, messText= parsing.ParsingTimeTable(), randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=17,timeForMessMin=5)
+    for chat in listOfChatForMessageEveryDay:
+        MessageEveryDay(chat[0], messText= parsing.ParsingTimeTable(), randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2])
 
     for event in longpoll.listen():
         try:
@@ -40,8 +40,15 @@ while True:
                     message_text = event.message['text']
                     if message_text[0] in '/+><':
                         if message_text[1:] == 'start':
-                            listOfChatForMessageEveryDay.append(id)
-                            chat_sender(id, "Вы подписались на ежедневную рассылку расписания!")
+
+                            chat_sender(id, "Вы подписались на ежедневную рассылку расписания!\nУкажите время расссылки в формате hh:mm")
+                            event2 = longpoll.check()
+                            if event2[0].type == VkBotEventType.MESSAGE_NEW and event2[0].from_chat and id == int(event2[0].chat_id) and len(event2[0].message['text']) == 5:
+                                #нужна доп проверка на то, что введино время
+                                message_text2 = event2[0].message['text']
+                                listOfChatForMessageEveryDay.append([id, int(message_text2[:2]), int(message_text2[3:])])
+
+
 
                     else:
                         print(message_text)
