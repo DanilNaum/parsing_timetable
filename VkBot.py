@@ -1,27 +1,52 @@
 import random
-
+import parsing
+from privatInfo import token, vk_id
 import vk_api
-from vk_api.longpoll import VkLongPoll, VkEventType
+from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
+
+listOfChatForMessageEveryDay=[]
 
 
+def chat_sender(id,message, random_id = random.randrange(1, 2147483645)):
+    vk.messages.send(chat_id= id, message= message, random_id= random_id)
 
-token = "vk1.a.34f-QZXQGzC84WsSD1Zn5MwIX3fr3vFNa4Us6LiuvkfHMZEjQXdDnB_Z5sCulnWTCufpD3_4qxlYjmFNzs9OlaCK7gkN3mucKoy0Vag2CcZ4WPaIISfI6zutfsTcoUtKX05ovsKHfIS9PCoaDlPy3emdx5dad1m_xnXrC-Ncl3jl1-AmuwZfcrCIAzFv-SOR"
-def sender(id,message):
-    session.method('messages.send',{'chat_id': id, 'message': message, "random_id":random.randrange(1, 2147483645)})
+def user_sender(id,message):
+    vk.messages.send(user_id= id, message= message, random_id= random.randrange(1, 2147483645))
 
-session = vk_api.VkApi(token=token)
-vk = session.get_api()
+def MessageEveryDay(chat_id,randIdForMessageEveryDay = 0, timeForMessHour = 9, timeForMessMin = 0):
+    date = parsing.dt.datetime.now()
+    if date.hour == timeForMessHour and date.minute == timeForMessMin:
+        chat_sender(chat_id, "текст сообщения", randIdForMessageEveryDay)
 
-longpoll = VkLongPoll(session)
+vk_session = vk_api.VkApi(token=token)
+vk = vk_session.get_api()
+
+longpoll = VkBotLongPoll(vk_session, vk_id)
 
 
-for event in longpoll.listen():
-    try:
-        if event.type == VkEventType.MESSAGE_NEW:
-            if event.from_chat:
-                id = event.chat_id
-                request = event.object.message['text']
-                print(request)
-                sender(id, request)
-    except Exception:
-        print(Exception)
+while True:
+
+
+    for event in longpoll.listen():
+        try:
+            if event.type == VkBotEventType.MESSAGE_NEW:
+                if event.from_chat:
+                    id = int(event.chat_id)
+                    message_text = event.message['text']
+                    if message_text[0] in '/+><':
+                        if message_text[1:] == 'start':
+                            listOfChatForMessageEveryDay.append(id)
+                            chat_sender(id, "Вы подписались на ежедневную рассылку рассписания!")
+                    else:
+                        print(message_text)
+                        chat_sender(id, message_text)
+                if event.from_user:
+                    id = int(event.message['from_id'])
+                    message_text = event.message['text']
+                    print(message_text)
+                    user_sender(id, message_text)
+
+        except Exception:
+            print(Exception)
+    else:
+        continue
