@@ -2,9 +2,12 @@ from bs4 import BeautifulSoup
 import requests as req
 import datetime as dt
 
-
+date = dt.datetime.now()
+findingYear, findingMonth,findingDay = date.year,date.month,date.day
+current_day = str(findingYear)+'-'+'{:02d}'.format(findingMonth)+'-'+'{:02d}'.format(findingDay)
 
 def ParsingTimeTable():
+    ans= ''
     ruMonths = ['','января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября',
               'октября', 'ноября', 'декабря']
 
@@ -34,7 +37,7 @@ def ParsingTimeTable():
         s = s[s.find(",") + 2:]
         dayPars, monthPars = int(s.split()[0]), ruMonths.index(s.split()[1])
         print(str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars))
-
+        ans +=  str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars)+'\n'
         lessons = day.findAll(class_="common-list-item row")
         for lesson in lessons:
             timeOfLesson = ' '.join(lesson.find(class_="col-sm-2 studyevent-datetime").text.split())
@@ -61,4 +64,7 @@ def ParsingTimeTable():
                     addresOfLesson = ''.join(addresOfLesson[addresOfLesson.rfind('.') + 2:].split(',')[::-1])
             # print('\t'+ ' '.join(lesson.text.split()))
             print('\t', timeOfLesson, nameOfLesson,typeOfLesson,addresOfLesson,teacherNameOfLesson,sep='|')
+            ans += '\t' + ' ' + timeOfLesson + ' ' + nameOfLesson + ' ' + typeOfLesson + ' ' + addresOfLesson + ' ' + teacherNameOfLesson + '\n'
         print('\n')
+        ans += '\n'
+    return ans
