@@ -30,6 +30,7 @@ longpoll = VkBotLongPoll(vk_session, vk_id)
 while True:
     randIdForMessageEveryDay = int(''.join([i for i in parsing.current_day if i.isdigit()]))
     for chat in listOfChatForMessageEveryDay:
+
         MessageEveryDay(chat[0], messText= parsing.ParsingTimeTable(), randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2])
 
     for event in longpoll.listen():
