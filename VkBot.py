@@ -18,8 +18,10 @@ def user_sender(id,message):
 
 def MessageEveryDay(chat_id,messText='что-то пошло не так',randIdForMessageEveryDay = 0, timeForMessHour = 9, timeForMessMin = 0,test= False):
     date = parsing.dt.datetime.now()
-    if test or (date.hour == timeForMessHour and int(date.minute) == int(timeForMessMin)):
+    if (date.hour == timeForMessHour and int(date.minute) == int(timeForMessMin)):
         chat_sender(chat_id, messText, randIdForMessageEveryDay)
+    if test:
+        chat_sender(chat_id, messText, random.randrange(1, 10000000))
 
 vk_session = vk_api.VkApi(token=token)
 vk = vk_session.get_api()
@@ -27,11 +29,16 @@ vk = vk_session.get_api()
 longpoll = VkBotLongPoll(vk_session, vk_id)
 
 
+
+
 while True:
     randIdForMessageEveryDay = int(''.join([i for i in parsing.current_day if i.isdigit()]))
+    st = ''
     for chat in listOfChatForMessageEveryDay:
-
-        MessageEveryDay(chat[0], messText= parsing.ParsingTimeTable(), randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2])
+        SavingDays = parsing.ParsingTimeTable()
+        for day in SavingDays:
+            st += day.MyPrint()
+        MessageEveryDay(chat[0], messText= st , randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2])
 
     for event in longpoll.listen():
         try:

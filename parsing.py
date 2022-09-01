@@ -17,10 +17,11 @@ class Day:
         self.date = date
         self.lessons = les
     def MyPrint(self):
-        for lesson in self.lessons():
-            les = ' '.join(lesson.time(),lesson.name(),lesson.type(),lesson.addres())
-            les += '\n'
-        return date + les
+        for ls in self.lessons:
+            for lesson in ls:
+                les = ''.join(lesson.time+" "+lesson.name+' '+lesson.type+' '+lesson.addres)
+                les += '\n'
+        return self.date + les
 
 date = dt.datetime.now()
 findingYear, findingMonth,findingDay = date.year,date.month,date.day
@@ -59,7 +60,7 @@ def ParsingTimeTable():
         dayPars, monthPars = int(s.split()[0]), ruMonths.index(s.split()[1])
         print(str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars))
         ans +=  str(findingYear) +'-' +'{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars)+'\n'
-        date += str(findingYear) + '-' + '{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars) + '\n'
+        date = str(findingYear) + '-' + '{:02d}'.format(monthPars) + '-' + '{:02d}'.format(dayPars) + '\n'
         lessons = day.findAll(class_="common-list-item row")
         SavingLesson = []
         for lesson in lessons:
