@@ -37,8 +37,8 @@ while True:
     for chat in listOfChatForMessageEveryDay:
         SavingDays = parsing.ParsingTimeTable()
         for day in SavingDays:
-            st += day.MyPrint()
-        MessageEveryDay(chat[0], messText= st , randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2])
+            st += day.MyPrint()+'\n'
+        MessageEveryDay(chat[0], messText= st , randIdForMessageEveryDay= randIdForMessageEveryDay,timeForMessHour=chat[1],timeForMessMin=chat[2], test=True)
 
     for event in longpoll.listen():
         try:

@@ -18,8 +18,9 @@ class Day:
         self.lessons = les
     def MyPrint(self):
         for ls in self.lessons:
+            les = ''
             for lesson in ls:
-                les = ''.join(lesson.time+" "+lesson.name+' '+lesson.type+' '+lesson.addres)
+                les += ''.join(lesson.time+" "+lesson.name+' '+lesson.type+' '+lesson.addres)
                 les += '\n'
         return self.date + les
 
